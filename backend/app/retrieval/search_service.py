@@ -6,6 +6,7 @@ import sqlite3
 from typing import Optional
 
 from app.config import SEARCH_MAX_PAGE_SIZE, SEARCH_PAGE_SIZE
+from app.config import IS_POSTGRES
 from app.database import get_db
 
 
@@ -56,6 +57,23 @@ def search_standards(
     standard_family: Optional[str] = None,
 ) -> dict:
     """Search standards using FTS5 with optional filters."""
+    if IS_POSTGRES:
+        from .lexical import lexical_search
+
+        return lexical_search(
+            query=query,
+            page=page,
+            page_size=page_size,
+            sector=sector,
+            department=department,
+            committee=committee,
+            type_of_standard=type_of_standard,
+            year_from=year_from,
+            year_to=year_to,
+            status=status,
+            standard_family=standard_family,
+        )
+
     page_size = min(page_size, SEARCH_MAX_PAGE_SIZE)
     offset = (page - 1) * page_size
 

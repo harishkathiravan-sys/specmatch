@@ -9,6 +9,7 @@ import sqlite3
 import math
 from typing import Optional
 from app.database import get_db
+from app.config import IS_POSTGRES
 from app.config import SEARCH_MAX_PAGE_SIZE, SEARCH_PAGE_SIZE
 from .query import normalize as normalize_query, NormalizedQuery
 
@@ -125,6 +126,11 @@ def lexical_search(
     filter_where = ("AND " + " AND ".join(filter_conditions)) if filter_conditions else ""
     search_terms = nq.query_terms
 
+    if IS_POSTGRES:
+        return _postgres_search(
+            query, page, page_size, offset, filter_conditions, filter_params, search_terms
+        )
+
     with get_db() as conn:
         try:
             count_sql = f"SELECT COUNT(*) as cnt FROM standards_fts fts JOIN standards s ON fts.rowid=s.rowid WHERE standards_fts MATCH ? {filter_where}"
@@ -188,6 +194,57 @@ def _fallback_like(query: str, nq: NormalizedQuery, page: int, page_size: int, o
         d["matching_terms"]=[t for t in terms if t in (d.get("title_normalized") or "").lower()]
         items.append(d)
     return {"query": query, "normalized": nq.to_dict(), "fts_query": "LIKE fallback", "items": items, "pagination": _paginate(total, page, page_size)}
+
+
+def _postgres_search(query, page, page_size, offset, filter_conditions, filter_params, search_terms):
+    """Search the Supabase tsvector index with PostgreSQL full-text search."""
+    filter_where = ("AND " + " AND ".join(filter_conditions)) if filter_conditions else ""
+    with get_db() as conn:
+        count_sql = f"""
+            SELECT COUNT(*) AS cnt FROM standards s
+            WHERE s.search_vector @@ websearch_to_tsquery('simple', ?)
+            {filter_where}
+        """
+        total = conn.execute(count_sql, [query] + filter_params).fetchone()["cnt"]
+        results_sql = f"""
+            SELECT s.id, s.standard_id, s.standard_number, s.title, s.title_normalized,
+                   s.publication_year, s.type_of_standard, s.degree_of_equivalence,
+                   s.current_status, s.validation_status, s.record_type, s.synthetic_flag,
+                   s.sector, s.department, s.committee, s.product_category,
+                   s.standard_family_key, s.derived_keywords, s.enrichment_status,
+                   ts_headline('simple', COALESCE(s.title, ''),
+                               websearch_to_tsquery('simple', ?)) AS snippet,
+                   ts_rank_cd(s.search_vector, websearch_to_tsquery('simple', ?)) AS rank
+            FROM standards s
+            WHERE s.search_vector @@ websearch_to_tsquery('simple', ?)
+            {filter_where}
+            ORDER BY rank DESC
+            LIMIT ? OFFSET ?
+        """
+        params = [query, query, query] + filter_params + [page_size, offset]
+        rows = conn.execute(results_sql, params).fetchall()
+
+    items = []
+    for row in rows:
+        d = _row_to_dict(row)
+        score = max(0.0, min(1.0, float(d.pop("rank", 0) or 0)))
+        d["lexical_score"] = round(score, 4)
+        d["match_score"] = round(score, 3)
+        d["match_type"] = "fts"
+        d["matching_terms"] = [
+            term for term in search_terms
+            if term in (d.get("title_normalized") or "").lower()
+            or term in (d.get("derived_keywords") or "").lower()
+            or term in (d.get("standard_number") or "").lower()
+        ]
+        items.append(d)
+    return {
+        "query": query,
+        "normalized": normalize_query(query).to_dict(),
+        "fts_query": "PostgreSQL websearch_to_tsquery",
+        "items": items,
+        "pagination": _paginate(total, page, page_size),
+    }
 
 # Legacy alias for callers still importing from search_service
 def search_standards(*args, **kwargs):

@@ -118,20 +118,18 @@ def _get_cache_key(text: str, model: str, has_pipeline_context: bool = False) ->
 
 def _check_cache(cache_key: str) -> Optional[dict]:
     """Check the in-memory cache (lightweight — use SQLite for production)."""
-    import sqlite3
-    from app.config import DB_PATH
-    if not DB_PATH.exists():
-        return None
     try:
-        conn = sqlite3.connect(str(DB_PATH))
-        cursor = conn.execute(
+        from app.database import get_db
+        with get_db() as conn:
+            cursor = conn.execute(
             "SELECT analysis_json, model_used FROM llm_analysis_cache WHERE query_hash = ?",
             (cache_key,),
-        )
-        row = cursor.fetchone()
-        conn.close()
+            )
+            row = cursor.fetchone()
         if row:
-            return {"analysis": json.loads(row[0]), "model_used": row[1]}
+            analysis = row["analysis_json"] if isinstance(row, dict) else row[0]
+            model_used = row["model_used"] if isinstance(row, dict) else row[1]
+            return {"analysis": json.loads(analysis), "model_used": model_used}
     except Exception:
         pass
     return None
@@ -139,18 +137,28 @@ def _check_cache(cache_key: str) -> Optional[dict]:
 
 def _store_cache(cache_key: str, text: str, model: str, analysis: dict) -> None:
     """Store analysis in the cache."""
-    import sqlite3
-    from app.config import DB_PATH
     try:
-        conn = sqlite3.connect(str(DB_PATH))
-        conn.execute(
-            """INSERT OR REPLACE INTO llm_analysis_cache
-               (query_hash, query_text, model_used, analysis_json)
-               VALUES (?, ?, ?, ?)""",
-            (cache_key, text[:1000], model, json.dumps(analysis)),
-        )
-        conn.commit()
-        conn.close()
+        from app.database import get_db
+        from app.config import IS_POSTGRES
+        with get_db() as conn:
+            if IS_POSTGRES:
+                conn.execute(
+                    """INSERT INTO llm_analysis_cache
+                       (query_hash, query_text, model_used, analysis_json)
+                       VALUES (?, ?, ?, ?)
+                       ON CONFLICT (query_hash) DO UPDATE SET
+                       query_text = EXCLUDED.query_text,
+                       model_used = EXCLUDED.model_used,
+                       analysis_json = EXCLUDED.analysis_json""",
+                    (cache_key, text[:1000], model, json.dumps(analysis)),
+                )
+            else:
+                conn.execute(
+                    """INSERT OR REPLACE INTO llm_analysis_cache
+                       (query_hash, query_text, model_used, analysis_json)
+                       VALUES (?, ?, ?, ?)""",
+                    (cache_key, text[:1000], model, json.dumps(analysis)),
+                )
     except Exception:
         pass
 

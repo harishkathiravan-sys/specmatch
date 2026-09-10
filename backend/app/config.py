@@ -20,6 +20,7 @@ STANDARDS_COUNT = os.getenv("STANDARDS_COUNT", "24,132")
 # Database
 DATABASE_URL = os.getenv("DATABASE_URL", f"sqlite:///{DB_PATH}")
 ASYNC_DATABASE_URL = os.getenv("ASYNC_DATABASE_URL", f"sqlite+aiosqlite:///{DB_PATH}")
+IS_POSTGRES = DATABASE_URL.startswith(("postgresql://", "postgres://"))
 
 # API settings
 API_PREFIX = "/api"

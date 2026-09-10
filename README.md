@@ -37,7 +37,7 @@ frontend/                            React 19 + Vite 8 + TypeScript + Tailwind 4
   vite.config.ts                     /api → 127.0.0.1:8000 proxy
 ```
 
-Current deployment: **SQLite + FTS5** (no Docker/Postgres required on Windows). Postgres path is documented in `scripts/migrate_pgvector.py`.
+Current deployment can use **SQLite + FTS5** locally or **Supabase PostgreSQL** with PostgreSQL full-text search and pgvector.
 
 ---
 
@@ -92,6 +92,10 @@ CORS_ORIGINS=http://localhost:5173,http://localhost:3000
 EMBEDDING_PROVIDER=        # openai|cohere|local (Phase 3)
 VECTOR_DIMENSION=384
 ```
+
+For Supabase, set `DATABASE_URL` in `backend/.env` to the direct PostgreSQL
+connection string from Supabase. Never commit that file or expose the password
+to the frontend.
 
 ---
 
@@ -156,11 +160,22 @@ Install extras: `pip install pypdf python-docx` (in `requirements.txt`).
 
 ---
 
-## Postgres + pgvector Migration
+## Supabase PostgreSQL Migration
 
-See `backend/scripts/migrate_pgvector.py` — documents the PG delta and is runnable when `DATABASE_URL=postgresql://...` is set.
+Install the backend dependencies, put the Supabase direct connection string in
+`backend/.env`, then run from `backend/`:
 
-Target delta: `embedding vector(384)` + `HNSW` index, `tsv tsvector` + `GIN`, triggers + hybrid `ts_rank + cosine` fusion. No-op on SQLite.
+```bash
+python -m pip install -r requirements.txt
+python scripts/migrate_supabase.py
+```
+
+The migration creates the relational schema, imports all dataset CSVs, builds
+the PostgreSQL `tsvector`/GIN search index, and enables the `vector(384)`/
+HNSW column for future embeddings. It is repeatable; use
+`python scripts/migrate_supabase.py --reset` only for an intentional reload.
+The backend automatically selects Supabase when `DATABASE_URL` starts with
+`postgresql://` and retains SQLite + FTS5 for local fallback.
 
 ---
 

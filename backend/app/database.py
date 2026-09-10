@@ -1,15 +1,25 @@
-"""SQLite database connection and session management."""
+"""Database connections for local SQLite and Supabase PostgreSQL."""
 
+import re
 import sqlite3
-import threading
 from contextlib import contextmanager
-from pathlib import Path
 
-from app.config import DB_PATH, FTS_TOKENIZER
+from app.config import DATABASE_URL, DB_PATH, FTS_TOKENIZER, IS_POSTGRES
 
 
-def get_connection() -> sqlite3.Connection:
-    """Get a new SQLite connection with recommended pragmas."""
+def _postgres_sql(sql: str) -> str:
+    """Translate the existing qmark SQL used by the application to psycopg."""
+    return re.sub(r"\?", "%s", sql)
+
+
+def get_connection():
+    """Get a configured database connection."""
+    if IS_POSTGRES:
+        import psycopg
+        from psycopg.rows import dict_row
+
+        return psycopg.connect(DATABASE_URL, row_factory=dict_row)
+
     conn = sqlite3.connect(str(DB_PATH))
     conn.row_factory = sqlite3.Row
     conn.execute("PRAGMA journal_mode=WAL")
@@ -18,37 +28,42 @@ def get_connection() -> sqlite3.Connection:
     return conn
 
 
-# A long-lived read-only connection shared across the hot per-candidate
-# compliance/lifecycle lookups. It avoids re-opening + re-PRAGMA-ing a
-# connection for every single candidate (~40 per query), which otherwise
-# dominates Phase 6 latency. SELECT-only usage is safe in WAL mode.
-_shared_read_lock = threading.Lock()
-_shared_read_conn: sqlite3.Connection | None = None
+_shared_read_conn = None
 
 
-def get_shared_read_connection() -> sqlite3.Connection:
-    """Return a shared long-lived read-only SQLite connection.
+class _PostgresConnection:
+    """Small compatibility wrapper for the app's existing qmark SQL."""
 
-    The connection is created lazily on first use and reused thereafter.
-    WAL mode permits concurrent readers, and the connection is only used
-    for SELECT queries.
-    """
+    def __init__(self, connection):
+        self._connection = connection
+
+    def execute(self, sql, params=None):
+        return self._connection.execute(_postgres_sql(sql), params or ())
+
+    def __getattr__(self, name):
+        return getattr(self._connection, name)
+
+
+def get_shared_read_connection():
+    """Return a reusable read connection for semantic lookups."""
     global _shared_read_conn
     if _shared_read_conn is None:
-        with _shared_read_lock:
-            if _shared_read_conn is None:
-                conn = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)
-                conn.row_factory = sqlite3.Row
-                conn.execute("PRAGMA busy_timeout=5000")
-                _shared_read_conn = conn
+        if IS_POSTGRES:
+            _shared_read_conn = get_connection()
+        else:
+            _shared_read_conn = sqlite3.connect(f"file:{DB_PATH}?mode=ro", uri=True)
+            _shared_read_conn.row_factory = sqlite3.Row
+            _shared_read_conn.execute("PRAGMA busy_timeout=5000")
     return _shared_read_conn
 
 
 @contextmanager
 def get_db():
-    """Context manager for database connections."""
+    """Yield a transactional connection for either supported database."""
     conn = get_connection()
     try:
+        if IS_POSTGRES:
+            conn = _PostgresConnection(conn)
         yield conn
         conn.commit()
     except Exception:
@@ -59,40 +74,31 @@ def get_db():
 
 
 def init_fts(conn: sqlite3.Connection) -> None:
-    """Create FTS5 virtual table for full-text search."""
+    """Create the SQLite FTS5 virtual table used by local development."""
+    if IS_POSTGRES:
+        return
     conn.execute("DROP TABLE IF EXISTS standards_fts")
     conn.execute(f"""
         CREATE VIRTUAL TABLE standards_fts USING fts5(
-            standard_number,
-            title,
-            title_normalized,
-            type_of_standard,
-            derived_keywords,
-            standard_family_key,
-            department,
-            committee,
-            sector,
-            product_category,
-            scope,
-            content='standards',
-            content_rowid='rowid',
-            tokenize='{FTS_TOKENIZER}'
+            standard_number, title, title_normalized, type_of_standard,
+            derived_keywords, standard_family_key, department, committee,
+            sector, product_category, scope, content='standards',
+            content_rowid='rowid', tokenize='{FTS_TOKENIZER}'
         )
     """)
-    # Populate FTS index from standards table
     conn.execute("""
         INSERT INTO standards_fts(rowid, standard_number, title, title_normalized,
             type_of_standard, derived_keywords, standard_family_key, department,
             committee, sector, product_category, scope)
         SELECT rowid, standard_number, title, title_normalized, type_of_standard,
             derived_keywords, standard_family_key, department, committee, sector,
-            product_category, scope
-        FROM standards
+            product_category, scope FROM standards
     """)
     conn.commit()
 
 
 def rebuild_fts(conn: sqlite3.Connection) -> None:
-    """Rebuild FTS index."""
-    conn.execute("INSERT INTO standards_fts(standards_fts) VALUES('rebuild')")
-    conn.commit()
+    """Rebuild the local SQLite FTS index."""
+    if not IS_POSTGRES:
+        conn.execute("INSERT INTO standards_fts(standards_fts) VALUES('rebuild')")
+        conn.commit()
