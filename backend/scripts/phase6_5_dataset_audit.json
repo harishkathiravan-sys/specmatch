@@ -1,0 +1,30 @@
+{
+  "dataset_version": "V0.3",
+  "corpus_standards": 24132,
+  "benchmark_rows": 2000,
+  "gold_rows": 2000,
+  "gold_per_query": {
+    "POSITIVE": 2000
+  },
+  "benchmark_validation": {
+    "SYNTHETIC": 2000
+  },
+  "benchmark_difficulty": {
+    "SYNTHETIC_TITLE_MATCH": 2000
+  },
+  "benchmark_source": {
+    "SYNTHETIC_FROM_SOURCE_TITLE": 2000
+  },
+  "synthetic_flag": {
+    "True": 2000
+  },
+  "multi_expected": 0,
+  "gold_verification": {
+    "MANAKSETU_V02_GENERATOR": 2000
+  },
+  "hard_cases_rows": 2000,
+  "hard_negative_pairs_rows": 2000,
+  "hard_case_expected_action": {
+    "REJECT_NEGATIVE": 2000
+  }
+}

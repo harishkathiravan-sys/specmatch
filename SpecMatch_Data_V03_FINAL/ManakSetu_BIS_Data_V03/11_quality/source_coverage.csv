@@ -1,0 +1,5 @@
+source_id,source_role,records_captured,records_expected_or_applicable,coverage_note,authority_level
+SRC-V03-001,Official inventory,"24,132","24,132",100%,HIGH
+SRC-V03-002,Know Your Standard portal reference,0,"24,132",Portal is cataloged as authoritative source; per-standard capture not automated in this build,HIGH
+SRC-V03-004,Upcoming QCO table,28,28,100% of rows visible in official table captured,HIGH
+SRC-V03-003,Compulsory certification policy,28,28,Used as policy basis for QCO-linked certification status; exact scheme per product remains unspecified,HIGH

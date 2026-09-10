@@ -1,0 +1,10 @@
+{
+  "dataset_version": "V0.2",
+  "base_inventory_records": 24132,
+  "build_date": "2026-09-04",
+  "official_source_records": 24132,
+  "inferred_fields": "clearly labeled",
+  "synthetic_records": "clearly labeled",
+  "authoritative_web_enrichment": "NOT_PERFORMED_IN_BULK",
+  "fabrication_policy": "FORBIDDEN"
+}

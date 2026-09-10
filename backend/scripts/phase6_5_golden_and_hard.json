@@ -1,0 +1,149 @@
+{
+  "golden_test": {
+    "query": "Aircraft woven carpet for commercial aircraft cabin flooring with flame resistance, abrasion resistance and low smoke characteristics.",
+    "expected": "IS 19763:2026",
+    "base_rank": 1,
+    "phase6_rank": 1,
+    "top_result": "IS 19763:2026 — Textile floor coverings - Aircraft Woven Carpet - Specification",
+    "final_score": 0.75,
+    "requirement_coverage": 0.125,
+    "reasoning": [
+      "Strong retrieval and evidence signals",
+      "No major contradictions detected",
+      "Current lifecycle status confirmed"
+    ],
+    "evidence": [
+      "title_match",
+      "retrieval_signal",
+      "retrieval_match"
+    ],
+    "contradictions": [],
+    "confidence": "high",
+    "confidence_score": 0.7,
+    "compliance": "Not available in the current verified dataset.",
+    "certification": {
+      "available": false,
+      "note": "Not available in the current verified dataset."
+    },
+    "lifecycle": "Publication event recorded in the verified dataset.",
+    "qco": {
+      "available": false,
+      "note": "Not available in the current verified dataset."
+    }
+  },
+  "contradiction_tests": [
+    {
+      "test": "TEST_A_aircraft_carpet",
+      "query": "Aircraft woven carpet for commercial aircraft cabin flooring",
+      "expect": "aircraft-specific standard preferred (IS 19763 or aircraft title)",
+      "pass": true,
+      "top3": [
+        "IS 19763:2026 — Textile floor coverings - Aircraft Woven Carpet - Specification",
+        "IS 19699:2026 — Textile Floor Coverings — Broadloom Woven Carpet — Specification",
+        "IS 10610:1983 — Aircraft pressure cabin ground test connections"
+      ],
+      "contradictions_in_top3": [
+        [],
+        [],
+        [
+          {
+            "type": "industry",
+            "reason": "The query is in the textile domain, but the candidate is in the aerospace domain.",
+            "severity": "high",
+            "penalty": 0.35
+          }
+        ]
+      ],
+      "penalties": [
+        0.0,
+        0.0,
+        0.35
+      ]
+    },
+    {
+      "test": "TEST_B_residential_carpet",
+      "query": "Residential floor carpet for home living room flooring",
+      "expect": "residential/general floor covering NOT replaced by aircraft standards",
+      "pass": false,
+      "top3": [
+        "IS 19699:2026 — Textile Floor Coverings — Broadloom Woven Carpet — Specification",
+        "IS 19763:2026 — Textile floor coverings - Aircraft Woven Carpet - Specification",
+        "IS 17479:2023 — Textile Floor Covering - Carpet Tiles Made of Synthetic Yarn Specifica"
+      ],
+      "contradictions_in_top3": [
+        [],
+        [
+          {
+            "type": "application",
+            "reason": "The candidate is for aircraft applications, but the query specifies residential, home use.",
+            "severity": "high",
+            "penalty": 0.3
+          }
+        ],
+        []
+      ],
+      "penalties": [
+        0.0,
+        0.3,
+        0.0
+      ]
+    },
+    {
+      "test": "TEST_C_aircraft_residential_candidate",
+      "query": "Aircraft woven carpet with flame resistance for aircraft cabins",
+      "expect": "residential candidate receives contextual penalty if present",
+      "pass": true,
+      "top3": [
+        "IS 19763:2026 — Textile floor coverings - Aircraft Woven Carpet - Specification",
+        "IS 19699:2026 — Textile Floor Coverings — Broadloom Woven Carpet — Specification",
+        "IS 11871:1986 — Methods for determination of flammability and flame resistance of text"
+      ],
+      "contradictions_in_top3": [
+        [],
+        [],
+        []
+      ],
+      "penalties": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "test": "TEST_D_wrong_material",
+      "query": "Steel pipe for high-pressure water supply",
+      "expect": "non-steel pipe standards penalized (e.g. pvc/copper)",
+      "pass": true,
+      "top3": [
+        "IS 5822:1994 — Code of practice for laying of electrically welded steel pipes for wat",
+        "SP 57 (QAWSM):1993 — Handbook on pipes and fittings for drinking water supply",
+        "IS 4984:2016 — Polyethylene Pipes for Water Supply - Specification (Fifth Revision)"
+      ],
+      "contradictions_in_top3": [
+        [],
+        [],
+        []
+      ],
+      "penalties": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "hard_negative_pairs": {
+    "total": 0,
+    "neg_ranked_above_gold": 0,
+    "gold_rank": [],
+    "neg_ranks": [],
+    "detail": [],
+    "hnp_accuracy": 1.0,
+    "gold_recall_at_1": 0.0
+  },
+  "hard_cases": {
+    "total": 0,
+    "neg_in_top3": 0,
+    "detail": [],
+    "reject_accuracy": 1.0
+  }
+}

@@ -1,0 +1,3 @@
+scheme_id,scheme_name,display_name,description,source_url,authority_level
+SCHEME-V04-001,Scheme-I,ISI Mark Scheme,Standard Mark under licence; used for products covered by applicable compulsory certification/QCO requirements,https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-i-mark-scheme/?lang=en,AUTHORITATIVE
+SCHEME-V04-002,Scheme-X,Scheme X Certification,BIS conformity assessment route for products within Scheme X scope; applicability must be verified against current BIS scheme/QCO records,https://www.bis.gov.in/scheme-x-certification/faq-scheme-x-certification/?lang=en,AUTHORITATIVE

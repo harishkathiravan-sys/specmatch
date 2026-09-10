@@ -1,0 +1,81 @@
+{
+  "config": {
+    "limit": 200,
+    "benchmark": "D:\\testing2\\SpecMatch_Data_V03_FINAL\\ManakSetu_BIS_Data_V03\\09_evaluation\\benchmark.csv"
+  },
+  "results": [
+    {
+      "name": "A_lexical_only",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 198.0,
+      "p50_latency_ms": 183.7,
+      "p95_latency_ms": 314.2,
+      "total_s": 39.6
+    },
+    {
+      "name": "B_lexical_metadata",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 212.2,
+      "p50_latency_ms": 202.5,
+      "p95_latency_ms": 330.4,
+      "total_s": 42.4
+    },
+    {
+      "name": "C_full_phase6",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 244.4,
+      "p50_latency_ms": 239.2,
+      "p95_latency_ms": 351.5,
+      "total_s": 48.9
+    },
+    {
+      "name": "D_no_contradiction",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 198.4,
+      "p50_latency_ms": 191.4,
+      "p95_latency_ms": 303.4,
+      "total_s": 39.7
+    },
+    {
+      "name": "E_no_lifecycle",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 211.7,
+      "p50_latency_ms": 214.2,
+      "p95_latency_ms": 287.2,
+      "total_s": 42.4
+    },
+    {
+      "name": "F_no_penalties",
+      "queries": 200,
+      "recall_at_1": 0.99,
+      "recall_at_5": 0.995,
+      "recall_at_10": 0.995,
+      "mrr": 0.9925,
+      "avg_latency_ms": 207.4,
+      "p50_latency_ms": 202.3,
+      "p95_latency_ms": 294.7,
+      "total_s": 41.5
+    }
+  ],
+  "baseline_variant": "C_full_phase6"
+}

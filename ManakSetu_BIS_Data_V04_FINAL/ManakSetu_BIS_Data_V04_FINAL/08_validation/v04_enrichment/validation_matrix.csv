@@ -1,0 +1,9 @@
+test_id,test,status
+V04-DATA-001,"24,132 standard IDs remain unique",PASS
+V04-DATA-002,No synthetic rows promoted to authoritative,PASS
+V04-DATA-003,No unverified QCO facts invented,PASS
+V04-DATA-004,Authoritative detail samples preserve source status and provenance,PASS
+V04-DATA-005,Certification scheme registry cites BIS sources,PASS
+V04-DATA-006,Multilingual variants explicitly marked derived,PASS
+V04-DATA-007,Every V04 enrichment table has provenance/authority fields,PASS
+V04-DATA-008,V03 data retained without destructive overwrite,PASS

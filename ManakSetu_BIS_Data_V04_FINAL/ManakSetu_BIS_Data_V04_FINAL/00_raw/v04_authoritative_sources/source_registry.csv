@@ -1,0 +1,12 @@
+source_id,title,url,publisher,evidence_type,source_date,authority_level
+SRC-V04-001,BIS Know Your Standard,https://www.bis.gov.in/know-your-standard/?lang=en,BIS,ONE_STOP_STANDARD_RECORD,2026-05-08,AUTHORITATIVE
+SRC-V04-002,BIS Standards Portal,https://standards.bis.gov.in/,BIS,STANDARD_DETAILS_LIFECYCLE,2026-09-04,AUTHORITATIVE
+SRC-V04-003,BIS Product Certification Scheme I,https://www.bis.gov.in/product-certification/products-under-compulsory-certification/scheme-i-mark-scheme/?lang=en,BIS,COMPULSORY_CERTIFICATION,2026-07-10,AUTHORITATIVE
+SRC-V04-004,BIS Upcoming QCOs,https://www.bis.gov.in/upcoming-qcos-notified-and-due-for-implementation/?lang=en,BIS,QCO_ENFORCEMENT,2026-08-04,AUTHORITATIVE
+SRC-V04-005,BIS Act Rules Regulations,https://www.bis.gov.in/the-bureau/bis-act-rules-and-regulations/?lang=en,BIS,LEGAL_FRAMEWORK,2026-06-05,AUTHORITATIVE
+SRC-V04-006,BIS Compulsory Certification,https://www.bis.gov.in/product-certification/products-under-compulsory-certification/?lang=en,BIS,CERTIFICATION_POLICY,2026-09-04,AUTHORITATIVE
+SRC-V04-007,BIS Product Certification FAQ,https://www.bis.gov.in/product-certification/product-certification-faq/?lang=en,BIS,CERTIFICATION_FAQ,2026-09-04,AUTHORITATIVE
+SRC-V04-008,BIS Scheme X FAQ,https://www.bis.gov.in/scheme-x-certification/faq-scheme-x-certification/?lang=en,BIS,SCHEME_X,2026-09-04,AUTHORITATIVE
+SRC-V04-009,BIS Compendium of Indian Standards,https://www.bis.gov.in/compendium-of-indian-standards/?lang=en,BIS,DOMAIN_COMPENDIA,2025-05-05,AUTHORITATIVE
+SRC-V04-010,BIS Standards India,https://www.bis.gov.in/consumer-overview/standards-india/?lang=en,BIS,STANDARDS_UPDATES,2025-12-24,AUTHORITATIVE
+SRC-V04-011,Cookware Utensils and Cans QCO 2026,https://www.bis.gov.in/wp-content/uploads/2026/04/Cookware-Utensils-and-Cans-for-Foods-and-Beverages-Quality-Control-Order-2026.pdf,BIS,QCO_PRIMARY_GAZETTE,2026-04,AUTHORITATIVE

@@ -1,0 +1,1 @@
+query_id,query,expected_standard_ids,phase4_rank,phase6_base_rank,phase6_final_rank,phase6_top_result,lexical_score,semantic_score,metadata_score,coverage,contradictions,contradiction_penalty,lifecycle_penalty,final_score,confidence

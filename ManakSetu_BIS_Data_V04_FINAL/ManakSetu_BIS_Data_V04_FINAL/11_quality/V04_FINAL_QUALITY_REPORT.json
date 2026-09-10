@@ -1,0 +1,14 @@
+{
+  "dataset_version": "V0.4 FINAL",
+  "build_date": "2026-09-06",
+  "base_version": "V0.3",
+  "standards_preserved": 24132,
+  "unique_standard_numbers": 24132,
+  "qco_rows": 28,
+  "new_authoritative_sources": 11,
+  "authoritative_detail_samples": 2,
+  "fabricated_authoritative_facts": 0,
+  "synthetic_data_retained": true,
+  "data_policy": "Authoritative facts are source-backed; derived/synthetic/scaffold records remain explicitly labelled.",
+  "finality": "This dataset is intended as the final research/enrichment freeze. Future work should be refresh/update operations, not a new dataset version."
+}

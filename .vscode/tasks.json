@@ -1,0 +1,25 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "SpecMatch Backend (8000)",
+			"type": "shell",
+			"command": "python -m uvicorn app.main:app --reload --port 8000 --app-dir D:\\testing2\\backend",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "SpecMatch Frontend (5173)",
+			"type": "shell",
+			"command": "npm --prefix d:\\testing2\\frontend run dev -- --port 5173 --host 127.0.0.1",
+			"isBackground": true,
+			"problemMatcher": []
+		},
+		{
+			"label": "Restart Backend",
+			"type": "shell",
+			"command": "python -m uvicorn app.main:app --reload --port 8000 --app-dir D:\\testing2\\backend",
+			"isBackground": true
+		}
+	]
+}

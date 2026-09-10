@@ -1,0 +1,22 @@
+PROCUREMENT SPECIFICATION FOR AIRCRAFT WOVEN CARPET
+
+1. SCOPE
+This specification covers the supply and installation of aircraft woven carpet suitable for aircraft interior applications.
+
+2. MATERIAL REQUIREMENTS
+The carpet shall be manufactured from textile floor covering construction. The pile shall be woven and the carpet shall meet the requirements for durability, dimensional stability, and resistance to abrasion.
+
+3. PERFORMANCE REQUIREMENTS
+The carpet shall comply with applicable fire/safety performance requirements for aircraft interior applications. It shall be tested for flame resistance, smoke emission, and toxicity in accordance with the relevant Indian Standard specification for aircraft woven carpet.
+
+4. DIMENSIONS
+The carpet shall be supplied in rolls with the following nominal dimensions:
+Width: 1520 mm nominal
+Thickness: 6.0 mm nominal
+Mass per unit area: 1800 g/m2
+
+5. TESTING
+The carpet shall be tested in accordance with the applicable testing requirements, including tests for dimensional stability, abrasion resistance, and fire performance. All testing shall be carried out by an accredited laboratory.
+
+6. MARKING AND PACKING
+Each roll shall be marked with the standard number, batch number, and date of manufacture.

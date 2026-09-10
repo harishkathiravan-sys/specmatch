@@ -1,0 +1,719 @@
+{
+  "summary": {
+    "total_queries": 2000,
+    "recall_at_1": 0.986,
+    "recall_at_5": 0.997,
+    "recall_at_10": 0.9975,
+    "total_failures": 28,
+    "not_in_top10": 5,
+    "in_top5_not_1": 22,
+    "in_top10_not_1": 1,
+    "elapsed_s": 446.6
+  },
+  "failure_cause_analysis": {
+    "not_in_top10_root_cause": "Gold standard not retrieved by FTS — likely corpus gap (standard exists but FTS keyword mismatch)",
+    "in_top10_not_1_root_cause": "Phase 6 re-ranking moved gold from top position — scoring or penalty issue"
+  },
+  "failures": [
+    {
+      "query_id": "BENCH-00111",
+      "query": "Procurement requirement: Methods of Sampling and Test Physical and Chemical for Water and Wastewater Part 52 Chromium Section 2 Method Using Flow Analysis (FIA and CFA) and Spectrometric Detection",
+      "expected_ids": "MSV1-E3F27BF3AB424BD3",
+      "rank_base": 0,
+      "rank_final": 0,
+      "latency_ms": 294.5,
+      "top3": [
+        {
+          "standard_number": "IS 3025 (Part 52):2003",
+          "title": "Methods of Sampling and Test (Physical and Chemical) for Water and Wastewater: Part 52 Chromium (Fir",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 3025 (Part 79):2023",
+          "title": "Methods of Sampling and Test (Physical and Chemical) for Water and Wastewater Part 79 Silver",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 3025 (Part 80):2023",
+          "title": "Methods of Sampling and Test (Physical and Chemical) for Water and Wastewater Part 80 Chlorine Dioxi",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00189",
+      "query": "Procurement requirement: Specification for nickel formate for nickel catalyst (First Revision)",
+      "expected_ids": "MSV1-EFC5A024A3A826DD",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 196.0,
+      "top3": [
+        {
+          "standard_number": "IS 8325:2026",
+          "title": "Specification for nickel formate for nickel catalyst (First Revision)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 8325:1983",
+          "title": "Specification for nickel formate for nickel catalyst (First Revision)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 2782:2023",
+          "title": "Refined Nickel- Specification (First Revision)",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00247",
+      "query": "Procurement requirement: Earth-Moving Machinery - Functional Safety Part 1 Methodology to Determine Safety-related Parts of the Control System and Performance Requirements",
+      "expected_ids": "MSV1-02A01960382F416E",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 202.1,
+      "top3": [
+        {
+          "standard_number": "IS/ISO 19014 (Part 1):2018",
+          "title": "Earth-Moving Machinery - Functional Safety Part 1 Methodology to Determine Safety-related Parts of t",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/ISO 19104 (Part 1):2018",
+          "title": "Earth-Moving Machinery - Functional Safety Part 1 Methodology to Determine Safety-related Parts of t",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 19092 (Part 2):2025",
+          "title": "EARTH-MOVING MACHINERY FUNCTIONAL SAFETY PART 2: DESIGN AND EVALUATION OF HARDWARE AND ARCHITECTURE ",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00270",
+      "query": "Procurement requirement: Specification for general purpose machinery and spindle oils: Part 1 machinery oils (Second Revision)",
+      "expected_ids": "MSV1-3D80368A21AC06E3",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 179.0,
+      "top3": [
+        {
+          "standard_number": "IS 493 (Part 2):2019",
+          "title": "Specification for general purpose machinery and spindle oils: Part 2 spindle oils (Second Revision)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 493 (Part 1):2019",
+          "title": "Specification for general purpose machinery and spindle oils: Part 1 machinery oils (Second Revision",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 2494 (Part 1):1994",
+          "title": "V - Belts - Endless V - Belts for industrial purposes: Part 1 general purpose - Specification (Secon",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00424",
+      "query": "Procurement requirement: Glossary of terms relating to air cargo pallets and containers: Part 2 air cargo containers",
+      "expected_ids": "MSV1-E72D6806CDD86C6E",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 206.7,
+      "top3": [
+        {
+          "standard_number": "IS 7073 (Part 1):1973",
+          "title": "Glossary of terms relating to air cargo pallets and containers: Part 1 air cargo pallets",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 7073 (Part 2):1983",
+          "title": "Glossary of terms relating to air cargo pallets and containers: Part 2 air cargo containers",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 9818 (Part 2):1981",
+          "title": "Glossary of Terms Relating to Tillage and Intercultivation Equipment : Part 2 Terms Relating to Equi",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00456",
+      "query": "Procurement requirement: Information and documentation - RFID in libraries: Part 1 data elements and general guidelines for implementation",
+      "expected_ids": "MSV1-38FEB4AAC4A0C2F7",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 197.5,
+      "top3": [
+        {
+          "standard_number": "IS 16602 (Part 1):2026",
+          "title": "Information and documentation - RFID in libraries: Part 1 data elements and general guidelines for i",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16602 (Part 1):2018",
+          "title": "Information and documentation - RFID in libraries: Part 1 data elements and general guidelines for i",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16602 (Part 2):2026",
+          "title": "Information and Documentation RFID in Libraries Part 2: Encoding of RFID Data Elements Based on Rule",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00460",
+      "query": "Procurement requirement: Tools for pressing - Sliding plates",
+      "expected_ids": "MSV1-146D0B5543C3EC22",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 232.0,
+      "top3": [
+        {
+          "standard_number": "IS 16727:2018",
+          "title": "Tools for Pressing — Sliding Plates",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 19185:2025",
+          "title": "Tools for pressing - Sliding plates",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 17224:2019",
+          "title": "Tools for Pressing — Guide plates — U- and V-blocks",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00543",
+      "query": "Procurement requirement: Medical Electrical Equipment Part 2 Particular Requirements for the Basic Safety and Essential Performance Section 35 Heating devices using blankets pads or mattresses and intended for heating in medical use",
+      "expected_ids": "MSV1-CF08201B76026BBE",
+      "rank_base": 0,
+      "rank_final": 0,
+      "latency_ms": 213.0,
+      "top3": [
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 83):2026",
+          "title": "Medical electrical equipment Part 2 Particular requirements for the basic safety and essential perfo",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 75):2026",
+          "title": "Medical electrical equipment Part 2 Particular requirements for the basic safety and essential perfo",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 52):2020",
+          "title": "Medical Electrical Equipment Part 2 Particular Requirements for the Basic Safety and Essential Perfo",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00618",
+      "query": "Procurement requirement: Tool Holders with rectangular shank for Indexable Inserts: Part 10 Style N",
+      "expected_ids": "MSV1-D349D56666718B64",
+      "rank_base": 7,
+      "rank_final": 7,
+      "latency_ms": 418.5,
+      "top3": [
+        {
+          "standard_number": "IS 16637 (Part 12):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 12 Style S",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16637 (Part 4):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 4 Style D",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16637 (Part 2):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 2 Style A",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00659",
+      "query": "Procurement requirement: Electrical accessories Circuit-breakers for overcurrent protection for household and similar installations Part 2: Circuit-breakers for AC and DC operation",
+      "expected_ids": "MSV1-562F489441C11FE0",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 191.1,
+      "top3": [
+        {
+          "standard_number": "IS/IEC 60898 (Part 3):2019",
+          "title": "Electrical accessories - Circuit-breakers for overcurrent protection for household and similar insta",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/IEC 60898 (Part 2):2016",
+          "title": "Electrical accessories Circuit-breakers for overcurrent protection for household and similar install",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/IEC 60898 (Part 1):2015",
+          "title": "Electrical accessories - Circuit - Breakers for overcurrent protection for household and similar ins",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00671",
+      "query": "Procurement requirement: Tool holders with rectangular shank for indexable inserts: Part 14 Style H",
+      "expected_ids": "MSV1-9469A7DD37E09DC4",
+      "rank_base": 0,
+      "rank_final": 0,
+      "latency_ms": 176.2,
+      "top3": [
+        {
+          "standard_number": "IS 16637 (Part 12):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 12 Style S",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16637 (Part 4):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 4 Style D",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16637 (Part 2):2018",
+          "title": "Tool holders with rectangular shank for indexable inserts: Part 2 Style A",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-00700",
+      "query": "Procurement requirement: Information technology - Data communication - 37 - Pole DTE/DCE interface connector and contact number assignments (First Revision)",
+      "expected_ids": "MSV1-E770A00BCF5240C0",
+      "rank_base": 3,
+      "rank_final": 3,
+      "latency_ms": 332.3,
+      "top3": [
+        {
+          "standard_number": "IS 10735:2017",
+          "title": "Information technology - Data communication - 15 - Pole DTE/DCE interface connector and contact numb",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 10737:2017",
+          "title": "Information technology - Data communication - 15 - Pole DTE/DCE interface connector and contact numb",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 10736:2016",
+          "title": "Information technology - Data communication - 37 - Pole DTE/DCE interface connector and contact numb",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01037",
+      "query": "Procurement requirement: Prefilled syringes Part 4 Glass barrels for injectables and sterilized subassembled syringes ready for filling",
+      "expected_ids": "MSV1-5B1EA1C402E46A29",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 223.1,
+      "top3": [
+        {
+          "standard_number": "IS 19329 (Part 4):2025",
+          "title": "Prefilled Syringes Part 4 Glass Barrels for Injectables and Sterilized Subassembled Syringes Ready f",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/ISO 11040 (Part 4):2015",
+          "title": "Prefilled syringes Part 4 Glass barrels for injectables and sterilized subassembled syringes ready f",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 19329 (Part 6):2026",
+          "title": "Prefilled Syringes Part 6 Plastic Barrels for Injectables and Sterilized Subassembled Syringes Ready",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01114",
+      "query": "Procurement requirement: CONVEYOR CHAINS, CHAIN-WHEELS AND ATTACHMENTS - SPECIFICATION PART 3 ATTACHMENTS (FIRST REVISION)",
+      "expected_ids": "MSV1-8DD703EB88E031D1",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 203.1,
+      "top3": [
+        {
+          "standard_number": "IS 6834 (Part 2):2024",
+          "title": "CONVEYOR CHAINS, CHAIN-WHEELS AND ATTACHMENTS SPECIFICATION PART 2 CHAIN-WHEELS (first revision)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 6834 (Part 3):2024",
+          "title": "CONVEYOR CHAINS, CHAIN-WHEELS AND ATTACHMENTS - SPECIFICATION PART 3 ATTACHMENTS (FIRST REVISION)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 6834 (Part 1):2024",
+          "title": "CONVEYOR CHAINS, CHAIN-WHEELS AND ATTACHMENTS SPECIFICATION PART 1 CHAINS (first revision)",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01395",
+      "query": "Procurement requirement: Space Systems — Programme Management — Project Organization",
+      "expected_ids": "MSV1-72F43B9D5615FA89",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 124.5,
+      "top3": [
+        {
+          "standard_number": "IS 18339:2023",
+          "title": "SPACE SYSTEMS PROGRAMME MANAGEMENT PROJECT ORGANIZATION",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/ISO 11893:2011",
+          "title": "Space Systems — Programme Management — Project Organization",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 19251:2025",
+          "title": "Space Systems - Programme Management - Breakdown of Project Management Structures",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01458",
+      "query": "Procurement requirement: Dimensions for porcelain transformer bushings for use in normal and lightly polluted atmospheres: Part 3- 12 and 17.5 kV bushings: Sec 2 metal parts (First Revision)",
+      "expected_ids": "MSV1-7179E536EF796CFD",
+      "rank_base": 4,
+      "rank_final": 4,
+      "latency_ms": 175.4,
+      "top3": [
+        {
+          "standard_number": "IS 3347 (Part 4/Sec 2):1982",
+          "title": "Dimensions for porcelain transformer bushings for use in normal and lightly polluted atmospheres: Pa",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 3347 (Part 5/Sec 2):1979",
+          "title": "Dimensions for porcelain transformer bushings for use in normal and lightly polluted atmospheres: Pa",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 3347 (Part 2/Sec 2):1979",
+          "title": "Dimensions for porcelain transformer bushings for use in normal and lightly polluted atmospheres: Pa",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01503",
+      "query": "Procurement requirement: Coaxial Communication Cables Part 6 CATV Drop Cables Section 4 Detail specification for 75-7 type cables",
+      "expected_ids": "MSV1-D5E7CAEC37E0BA63",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 210.3,
+      "top3": [
+        {
+          "standard_number": "IS/IEC 61196 (Part 6/Sec 4):2020",
+          "title": "Coaxial Communication Cables Part 6 CATV Drop Cables Section 4 Detail specification for 75-7 type ca",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/IEC 611196 (Part 6/Sec 4):2020",
+          "title": "Coaxial Communication Cables Part 6 CATV Drop Cables Section 4 Detail specification for 75-7 type ca",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS/IEC 61196 (Part 6/Sec 2):2020",
+          "title": "Coaxial Communication Cables Part 6 CATV Drop Cables Section 2 Detail specification for 75-4 type ca",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01517",
+      "query": "Procurement requirement: Glossary of terms pertaining to textile processing: Part 2",
+      "expected_ids": "MSV1-EB75B8B201F422A8",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 164.3,
+      "top3": [
+        {
+          "standard_number": "IS 9603 (Part 3):1986",
+          "title": "Glossary of terms pertaining to textile processing: Part 3",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 9603 (Part 2):1985",
+          "title": "Glossary of terms pertaining to textile processing: Part 2",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 9603:1980",
+          "title": "Glossary of terms pertaining to textile processing",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01621",
+      "query": "Procurement requirement: Specification For Breaker And Holder, Razor Blade, Barraquer's Pattern",
+      "expected_ids": "MSV1-269BB02C584DC2A7",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 196.7,
+      "top3": [
+        {
+          "standard_number": "IS 10009:2026",
+          "title": "Breaker And Holder, Razor Blade, Barraquer's Pattern- Specification",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 10009:1981",
+          "title": "Specification For Breaker And Holder, Razor Blade, Barraquer's Pattern",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 8772:2026",
+          "title": "Specification For Needle Holder, Eye, Barraquer's Pattern(First Revision)",
+          "relevance_score": 0.6
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01720",
+      "query": "Procurement requirement: Skis - Vocabulary",
+      "expected_ids": "MSV1-0F71B6F49FE7A4E2",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 100.9,
+      "top3": [
+        {
+          "standard_number": "IS 9317:2022",
+          "title": "SKIS VOCABULARY",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16762:2018",
+          "title": "Skis - Vocabulary",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 16762:2026",
+          "title": "Skis — Vocabulary (First Revision)",
+          "relevance_score": 0.75
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01752",
+      "query": "Procurement requirement: Methods of test for Petroleum and its Products Part 187 Petroleum Products-Determination of Sulfated Ash in Lubricating Oils and Additives",
+      "expected_ids": "MSV1-F00D0C3DB033508F",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 212.1,
+      "top3": [
+        {
+          "standard_number": "IS 1448 (Part 187):2026",
+          "title": "Methods of test for Petroleum and its Products Part 187 Petroleum Products-Determination of Sulfated",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 1448 (Part 187):2021",
+          "title": "Methods of test for Petroleum and its Products Part 187 Petroleum Products-Determination of Sulfated",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 1448 (Part 120):2021",
+          "title": "Methods of test for petroleum and its products: Part 120 Zinc in lubricating oil",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01809",
+      "query": "Procurement requirement: Specification For Forceps, Eye, Strabismus, For Advancement (Prince's And Worth's Patterns)",
+      "expected_ids": "MSV1-A9E58D8E28548965",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 135.1,
+      "top3": [
+        {
+          "standard_number": "IS 5367:2026",
+          "title": "Specification For Forceps, Eye, Strabismus, For Advancement (Prince's And Worth's Patterns)",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 5367:1969",
+          "title": "Specification For Forceps, Eye, Strabismus, For Advancement (Prince's And Worth's Patterns)",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 5157:2026",
+          "title": "Specification for forceps, eye, Iris (First Revision)",
+          "relevance_score": 0.6
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01835",
+      "query": "Procurement requirement: Gas turbines - Vocabulary",
+      "expected_ids": "MSV1-16BFB9D98EE3CEBB",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 133.1,
+      "top3": [
+        {
+          "standard_number": "IS 15665:2006",
+          "title": "Gas turbines - Vocabulary",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 14751:1999",
+          "title": "Gas turbines - Vocabulary",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 15666 (Part 3):2006",
+          "title": "Gas turbines - Procurement: Part 3 design requirements",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01899",
+      "query": "Procurement requirement: Specification For Retractor, Eyelid, Desmarre's Pattern",
+      "expected_ids": "MSV1-8F79497D0E9B5928",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 109.3,
+      "top3": [
+        {
+          "standard_number": "IS 7786:2026",
+          "title": "Specification For Retractor, Eyelid, Desmarre's Pattern",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 7786:1975",
+          "title": "Specification For Retractor, Eyelid, Desmarre's Pattern",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 7762:2026",
+          "title": "Specification for hook, eyelid",
+          "relevance_score": 0.55
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01974",
+      "query": "Procurement requirement: Medical electrical equipment: Part 2 particular requirements for basic safety and essential performance: Sec 56 clinical thermometers for body temperature measurement",
+      "expected_ids": "MSV1-E0024308D10D1408",
+      "rank_base": 0,
+      "rank_final": 0,
+      "latency_ms": 192.6,
+      "top3": [
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 18):2014",
+          "title": "Medical electrical equipment: Part 2 particular requirements for the basic safety and essential perf",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 39):2019",
+          "title": "Medical electrical equipment: Part 2 particular requirements for the basic safety and essential perf",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 6):2018",
+          "title": "Medical electrical equipment: Part 2 particular requirements for the basic safety and essential perf",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01977",
+      "query": "Procurement requirement: Specification for trephine, bone lacrimal with handle",
+      "expected_ids": "MSV1-E0D53DDC52FD9C7B",
+      "rank_base": 2,
+      "rank_final": 2,
+      "latency_ms": 224.9,
+      "top3": [
+        {
+          "standard_number": "IS 11244:2026",
+          "title": "Specification for trephine, bone lacrimal with handle",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 11244:1985",
+          "title": "Specification for trephine, bone lacrimal with handle",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 5589:1970",
+          "title": "Specification for saw handle, bone amputation, orthopaedic",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01990",
+      "query": "Procurement requirement: Medical electrical equipment Part 2 Particular requirements for basic safety and essential performance Section 43 X-ray equipment for interventional procedures Second revision",
+      "expected_ids": "MSV1-35CA024DC416A22F",
+      "rank_base": 0,
+      "rank_final": 0,
+      "latency_ms": 251.8,
+      "top3": [
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 83):2026",
+          "title": "Medical electrical equipment Part 2 Particular requirements for the basic safety and essential perfo",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 75):2026",
+          "title": "Medical electrical equipment Part 2 Particular requirements for the basic safety and essential perfo",
+          "relevance_score": 0.75
+        },
+        {
+          "standard_number": "IS 13450 (Part 2/Sec 52):2020",
+          "title": "Medical Electrical Equipment Part 2 Particular Requirements for the Basic Safety and Essential Perfo",
+          "relevance_score": 0.5
+        }
+      ]
+    },
+    {
+      "query_id": "BENCH-01993",
+      "query": "Procurement requirement: SELECTION, INSTALLATION, OPERATION AND MAINTENANCE OF PUMPS FOR INDUSTRIAL APPLICATIONS - CODE OF PRACTICE PART 2 INSTALLATION",
+      "expected_ids": "MSV1-09AD0C8E5B6A119B",
+      "rank_base": 3,
+      "rank_final": 3,
+      "latency_ms": 143.5,
+      "top3": [
+        {
+          "standard_number": "IS 10596 (Part 4):2025",
+          "title": "SELECTION, INSTALLATION, OPERATION AND MAINTENANCE OF PUMPS FOR INDUSTRIAL APPLICATIONS - CODE OF PR",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 10596 (Part 3):2025",
+          "title": "SELECTION, INSTALLATION, OPERATION AND MAINTENANCE OF PUMPS FOR INDUSTRIAL APPLICATIONS - CODE OF PR",
+          "relevance_score": 0.5
+        },
+        {
+          "standard_number": "IS 10596 (Part 2):2025",
+          "title": "SELECTION, INSTALLATION, OPERATION AND MAINTENANCE OF PUMPS FOR INDUSTRIAL APPLICATIONS - CODE OF PR",
+          "relevance_score": 0.5
+        }
+      ]
+    }
+  ]
+}

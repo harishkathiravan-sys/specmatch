@@ -1,0 +1,7 @@
+qa_id,check,pass,details
+V03-QA-001,STANDARD_COUNT,True,"24,132 canonical inventory records retained"
+V03-QA-002,UNIQUE_STANDARD_NUMBERS,True,24132 unique standard numbers
+V03-QA-003,SOURCE_MANIFEST,True,Source manifest present
+V03-QA-004,QCO_SOURCE_ROWS,True,28 upcoming QCO rows captured from BIS official table
+V03-QA-005,NO_FABRICATED_EXPERT_LABELS,True,Expert labels remain empty until human annotation
+V03-QA-006,NO_FABRICATED_TRANSLATIONS,True,Regional variants are explicitly non-authoritative

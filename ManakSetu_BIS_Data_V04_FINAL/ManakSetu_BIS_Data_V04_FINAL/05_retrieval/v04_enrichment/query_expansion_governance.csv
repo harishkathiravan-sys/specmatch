@@ -1,0 +1,8 @@
+expansion_type,policy,authority,human_review_required
+abbreviation,IS/ISO/IEC token normalization only,DERIVED,False
+punctuation_normalization,remove non-semantic punctuation,DERIVED,False
+part_section_normalization,canonicalize Part/Sec forms,DERIVED,False
+product_synonym,only source-derived or curated terms,DERIVED,True
+domain_keyword,title-derived keywords,DERIVED,False
+application_context,never assert applicability without evidence,DERIVED,True
+unit_normalization,normalize units without changing value,DERIVED,False

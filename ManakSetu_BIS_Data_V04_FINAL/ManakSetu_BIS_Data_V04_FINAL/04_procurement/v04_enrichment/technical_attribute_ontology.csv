@@ -1,0 +1,11 @@
+attribute_family,attribute_name,examples,derivation_basis,authority_status
+MATERIAL,material,steel;aluminium;polymer;cement;textile;wood;glass;ceramic;electrical;chemical,TITLE/DOMAIN_DERIVED,DERIVED
+DIMENSION,dimension,length;width;height;diameter;thickness;size;nominal size,TITLE/DOMAIN_DERIVED,DERIVED
+PERFORMANCE,performance,strength;efficiency;capacity;load;abrasion;durability;resistance,TITLE/DOMAIN_DERIVED,DERIVED
+TEST_METHOD,test_method,sampling;test method;measurement;determination;inspection,TITLE/DOMAIN_DERIVED,DERIVED
+SAFETY,safety,fire;electrical safety;hazard;protective;flammability,TITLE/DOMAIN_DERIVED,DERIVED
+APPLICATION,application,aircraft;medical;construction;industrial;domestic;automotive;food contact,TITLE/DOMAIN_DERIVED,DERIVED
+ENVIRONMENT,environment,temperature;humidity;corrosion;weathering;environmental exposure,TITLE/DOMAIN_DERIVED,DERIVED
+COMPOSITION,composition,chemical composition;grade;alloy;ingredients;constituents,TITLE/DOMAIN_DERIVED,DERIVED
+MARKING,marking,marking;labelling;identification;packaging,TITLE/DOMAIN_DERIVED,DERIVED
+CONFORMITY,conformity,certification;conformity assessment;inspection;licence,BIS_POLICY,DERIVED_WITH_AUTHORITY_RULES

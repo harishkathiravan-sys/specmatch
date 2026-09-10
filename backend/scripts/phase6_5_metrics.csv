@@ -1,0 +1,21 @@
+metric,value,notes
+benchmark_queries,2000,
+recall_at_1_base,0.986,
+recall_at_5_base,0.997,
+recall_at_10_base,0.9975,
+mrr_base,0.9913,
+recall_at_1_final,0.986,
+recall_at_5_final,0.997,
+recall_at_10_final,0.9975,
+mrr_final,0.9913,
+avg_coverage,0.706,
+total_ms,991478.8,
+avg_ms_query,495.7,
+p50_ms_query,366.5,
+p95_ms_query,1117.5,
+dataset,V0.3,corpus=24132 standards
+dataset_queries,2000,all synthetic
+dataset_gold_per_query,1,single gold label per query
+phase4_recall_at_1,,from _audit_run_baseline.py (reranked mode)
+phase4_recall_at_5,,
+phase4_mrr,,

@@ -1,0 +1,6 @@
+metric,description,value,target,interpretation,validation_status
+standards_inventory,standard records,24132,"24,132",100% retained from V02,SOURCE_DERIVED
+upcoming_qco,authoritative BIS upcoming QCO rows,28,N/A,28 rows captured from BIS table,SOURCE_DERIVED
+qco_inventory_match,QCO standards found in V02 inventory,16,28,Explicitly tracked; unmatched QCO standards retained,SOURCE_DERIVED
+expert_labels,expert procurement labels,0,N/A,Pending human annotation; no fabricated labels,NOT_AVAILABLE
+regional_variants,regional-language variants,4500,N/A,Scaffold only; no fabricated translations,NOT_VALIDATED
