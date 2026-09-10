@@ -10,11 +10,11 @@ load_dotenv(_backend_dir / ".env")
 
 # Base paths
 BASE_DIR = Path(__file__).resolve().parent.parent
-DATA_DIR = BASE_DIR.parent / "SpecMatch_Data_V03_FINAL" / "ManakSetu_BIS_Data_V03"
+DATA_DIR = BASE_DIR.parent / "ManakSetu_BIS_Data_V04_FINAL" / "ManakSetu_BIS_Data_V04_FINAL"
 DB_PATH = BASE_DIR / "specmatch.db"
 
 # Dataset version (displayed in UI)
-DATASET_VERSION = os.getenv("DATASET_VERSION", "V0.3")
+DATASET_VERSION = os.getenv("DATASET_VERSION", "V0.4")
 STANDARDS_COUNT = os.getenv("STANDARDS_COUNT", "24,132")
 
 # Database
